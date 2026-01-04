@@ -53,7 +53,7 @@ export default function Footer() {
 
           <div className="divider-vertical" />
 
-          <div className="stat logo">
+          <div className="footer-logo">
             <img src={logo} alt="Acort.AR" />
           </div>
         </div>

@@ -280,19 +280,19 @@ button.secondary {
   font-weight: 600;
 }
 
-.stat.logo {
+.stat .logo {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.stat.logo img {
+.footer-logo img {
   height: 42px;
+  width: auto;
   opacity: 0.9;
-  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.stat.logo img:hover {
+.stat .logo img:hover {
   opacity: 1;
   transform: translateY(-2px);
 }
