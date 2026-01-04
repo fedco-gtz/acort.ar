@@ -58,6 +58,9 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      <div className="lang">
+        <span>¡De 🇦🇷 para el mundo! 🌎</span>
+      </div>
     </footer>
   );
 }

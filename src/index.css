@@ -97,15 +97,20 @@ body {
 
 .lang {
   position: absolute;
-  right: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+
   display: flex;
   align-items: center;
   gap: 0.35rem;
+
   font-size: 0.85rem;
   color: #d1d5db;
   cursor: pointer;
+
   padding: 0.35rem 0.6rem;
   border-radius: 999px;
+
   transition: background 0.2s ease, color 0.2s ease;
 }
 
@@ -116,10 +121,6 @@ body {
 
 .lang-icon {
   font-size: 0.95rem;
-}
-
-.chevron {
-  font-size: 0.7rem;
 }
 
 .logo {

@@ -17,10 +17,6 @@ export default function Header() {
           <li><NavLink to="/acerca">Acerca de</NavLink></li>
 
         </ul>
-
-        <div className="lang">
-          <span>¡De 🇦🇷 para el mundo! 🌎</span>
-        </div>
       </nav>
     </header>
   );
