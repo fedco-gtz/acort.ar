@@ -95,34 +95,6 @@ body {
   color: #a5b4fc;
 }
 
-.lang {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-
-  font-size: 0.85rem;
-  color: #d1d5db;
-  cursor: pointer;
-
-  padding: 0.35rem 0.6rem;
-  border-radius: 999px;
-
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-.lang:hover {
-  background: rgba(79, 70, 229, 0.08);
-  color: #a5b4fc;
-}
-
-.lang-icon {
-  font-size: 0.95rem;
-}
-
 .logo {
   display: flex;
   align-items: center;
@@ -140,6 +112,31 @@ body {
 .logo:hover img {
   transform: scale(1.05);
   opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+  .nav {
+    height: 64px;
+    padding: 0 1rem;
+  }
+
+  .logo {
+    left: 1rem;
+  }
+
+  .logo img {
+    height: 42px;
+  }
+
+  .nav-links {
+    gap: 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .nav-links a::after {
+    bottom: -4px;
+    height: 2px;
+  }
 }
 
 /* ================= PAGE ================= */
@@ -302,6 +299,34 @@ button.secondary {
   width: 1px;
   height: 48px;
   background: rgba(255, 255, 255, 0.15);
+}
+
+.lang {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  font-size: 0.85rem;
+  color: #d1d5db;
+  cursor: pointer;
+
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lang:hover {
+  background: rgba(79, 70, 229, 0.08);
+  color: #a5b4fc;
+}
+
+.lang-icon {
+  font-size: 0.95rem;
 }
 
 @media (max-width: 900px) {
