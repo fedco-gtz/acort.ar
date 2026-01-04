@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../config/firebase";
+import { toast } from "react-toastify";
 
 export default function Home() {
   const [url, setUrl] = useState("");
@@ -9,14 +10,13 @@ export default function Home() {
 
   const shorten = async () => {
     if (!url.startsWith("http")) {
-      alert("URL inválida");
+      toast.error("URL inválida 😕");
       return;
     }
 
     setLoading(true);
 
     try {
-      // 1️⃣ Llamada a la API de is.gd
       const response = await fetch(
         `https://is.gd/create.php?format=json&url=${encodeURIComponent(url)}`
       );
@@ -24,11 +24,10 @@ export default function Home() {
       const data = await response.json();
 
       if (!data.shorturl) {
-        alert("No se pudo acortar el link");
+        toast.error("No se pudo acortar el link ⚠️");
         return;
       }
 
-      // 2️⃣ Guardar en Firestore
       await addDoc(collection(db, "urls"), {
         originalUrl: url,
         shortUrl: data.shorturl,
@@ -36,11 +35,10 @@ export default function Home() {
         createdAt: serverTimestamp(),
       });
 
-      // 3️⃣ Mostrar resultado
       setShortUrl(data.shorturl);
     } catch (error) {
       console.error(error);
-      alert("Error al generar el link");
+      toast.error("Error al generar el link 💥");
     } finally {
       setLoading(false);
     }
@@ -53,7 +51,7 @@ export default function Home() {
 
   const copyLink = async () => {
     await navigator.clipboard.writeText(shortUrl);
-    alert("Link copiado ✅");
+    toast.success("Link copiado con éxito 🚀");
   };
 
   return (

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../config/firebase";
+import { toast } from "react-toastify";
 
 export default function Qr() {
   const [text, setText] = useState("");
@@ -9,7 +10,7 @@ export default function Qr() {
 
   const generateQr = async () => {
     if (!text) {
-      alert("Ingresá un texto o link");
+      toast.error("Ingresá un texto o link ⚠️");
       return;
     }
 
@@ -29,7 +30,7 @@ export default function Qr() {
       setQrUrl(apiUrl);
     } catch (error) {
       console.error(error);
-      alert("Error al generar el QR");
+      toast.error("Error al generar el QR 💥");
     } finally {
       setLoading(false);
     }
@@ -52,7 +53,7 @@ export default function Qr() {
       window.URL.revokeObjectURL(url);
     } catch (error) {
       console.error(error);
-      alert("No se pudo descargar el QR");
+      toast.error("No se pudo descargar el QR 😕");
     }
   };
 
