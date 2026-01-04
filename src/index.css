@@ -122,6 +122,25 @@ body {
   font-size: 0.7rem;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 1.5rem;
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.logo:hover img {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
 /* ================= PAGE ================= */
 .page {
   min-height: calc(100vh - 72px);
@@ -194,6 +213,22 @@ button.secondary {
   height: 1px;
   margin: 1.5rem 0;
   background: var(--border);
+}
+
+.qr-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.qr-wrapper img {
+  width: 260px;
+  max-width: 100%;
+  border-radius: 12px;
+  background: #fff;
+  padding: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
 /* ================= FOOTER ================= */

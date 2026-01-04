@@ -1,28 +1,11 @@
 import { useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../config/firebase";
-
-/* Genera códigos tipo: AD947KQ */
-const generateCode = () => {
-  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const numbers = "0123456789";
-
-  const randomLetters = (length) =>
-    Array.from({ length }, () =>
-      letters[Math.floor(Math.random() * letters.length)]
-    ).join("");
-
-  const randomNumbers = (length) =>
-    Array.from({ length }, () =>
-      numbers[Math.floor(Math.random() * numbers.length)]
-    ).join("");
-
-  return `${randomLetters(2)}${randomNumbers(3)}${randomLetters(2)}`;
-};
 
 export default function Home() {
   const [url, setUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const shorten = async () => {
     if (!url.startsWith("http")) {
@@ -30,15 +13,37 @@ export default function Home() {
       return;
     }
 
-    const code = generateCode();
+    setLoading(true);
 
-    await addDoc(collection(db, "urls"), {
-      originalUrl: url,
-      code,
-      createdAt: new Date(),
-    });
+    try {
+      // 1️⃣ Llamada a la API de is.gd
+      const response = await fetch(
+        `https://is.gd/create.php?format=json&url=${encodeURIComponent(url)}`
+      );
 
-    setShortUrl(`${window.location.origin}/${code}`);
+      const data = await response.json();
+
+      if (!data.shorturl) {
+        alert("No se pudo acortar el link");
+        return;
+      }
+
+      // 2️⃣ Guardar en Firestore
+      await addDoc(collection(db, "urls"), {
+        originalUrl: url,
+        shortUrl: data.shorturl,
+        provider: "is.gd",
+        createdAt: serverTimestamp(),
+      });
+
+      // 3️⃣ Mostrar resultado
+      setShortUrl(data.shorturl);
+    } catch (error) {
+      console.error(error);
+      alert("Error al generar el link");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const reset = () => {
@@ -69,8 +74,12 @@ export default function Home() {
             placeholder="https://..."
           />
 
-          <button className="primary" onClick={shorten}>
-            Acortar
+          <button
+            className="primary"
+            onClick={shorten}
+            disabled={loading}
+          >
+            {loading ? "Acortando..." : "Acortar"}
           </button>
         </>
       )}
