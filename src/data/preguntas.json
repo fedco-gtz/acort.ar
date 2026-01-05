@@ -1,22 +1,38 @@
 [
-  {
-    "pregunta": "¿Qué es un Acort.Ar?",
-    "respuesta": "Es la herramienta clave para transformar URLs extensas y complejas en links breves y estéticos. Con nuestra plataforma, no solo optimizas el espacio en tus redes sociales, sino que proyectas una imagen más profesional y eficiente en cada click."
-  },
-  {
-    "pregunta": "¿Cómo puedo registrarme?",
-    "respuesta": "Para registrarte, haz clic en el botón 'Registrarse' en la página principal y completa el formulario con tus datos."
-  },
-  {
-    "pregunta": "¿Puedo recuperar mi contraseña?",
-    "respuesta": "Sí, ve a la sección de inicio de sesión y haz clic en 'Olvidé mi contraseña'. Te enviaremos un correo con instrucciones."
-  },
-  {
-    "pregunta": "¿Cómo funcionan las funcionalidades de la página?",
-    "respuesta": "Cada sección tiene un propósito: puedes consultar información, registrarte, participar en actividades y recibir notificaciones según tu perfil."
-  },
-  {
-    "pregunta": "¿A quién puedo contactar si tengo problemas?",
-    "respuesta": "Puedes contactarnos mediante el formulario de contacto en la sección 'Soporte' o enviando un correo a soporte@ejemplo.com."
-  }
+    {
+        "pregunta": "¿Qué es Acort.Ar?",
+        "respuesta": "Es la herramienta clave para transformar URLs extensas y complejas en links breves y estéticos. Con nuestra plataforma, no solo optimizas el espacio en tus redes sociales, sino que proyectas una imagen más profesional y eficiente en cada click."
+    },
+    {
+        "pregunta": "¿Qué ventajas ofrece utilizar enlaces cortos en redes sociales?",
+        "respuesta": "Maximiza el impacto de tus redes sociales con links breves: al ocupar menos espacio, dejan el protagonismo al mensaje principal. Un enlace simplificado es percibido como más seguro y atractivo, lo que incentiva a tu audiencia a interactuar con el contenido."
+    },
+    {
+        "pregunta": "¿Es realmente gratis usar este Acort.Ar?",
+        "respuesta": "Nuestro acortador es 100% libre de costos: sin registros obligatorios ni letras pequeñas. Crea tantos links como quieras de manera inmediata y gratuita, sin necesidad de dejar tus datos bancarios."
+    },
+    {
+        "pregunta": "¿Qué sucedió con el acortador de URL de Google (goo.gl)?",
+        "respuesta": "Tras el cierre de goo.gl por parte de Google en 2019, nuestro servicio tomó el relevo ofreciendo una experiencia mejorada. No solo recuperas la simplicidad de aquel entonces, sino que ahora cuentas con enlaces personalizados y permanentes, sin preocuparte por fechas de vencimiento."
+    },
+    {
+        "pregunta": "¿Cómo puedo generar un enlace corto para un video de YouTube?",
+        "respuesta": "¡Es muy fácil! Solo tienes que copiar el enlace de tu video de YouTube, pegarlo en nuestra herramienta y pulsar el botón 'Acortar Link'. En segundos, tendrás una URL compacta y profesional, lista para destacar en tus redes sociales, campañas de email o en la misma descripción de tus videos."
+    },
+    {
+        "pregunta": "¿Se puede usar este enlace corto en la bio de Instagram?",
+        "respuesta": "¡Claro! Crea enlaces cortos, limpios y fáciles de recordar para tu bio de Instagram. Ideal para llevar a tus seguidores directamente a tus contenidos."
+    },
+    {
+        "pregunta": "¿Cómo puedo crear un enlace corto para WhatsApp?",
+        "respuesta": "¡Estamos mejorando la experiencia para vos! Por ahora, podes enviarnos tu link y recibir la versión corta en segundos. Sin embargo, nuestro equipo está trabajando para integrar mensajes personalizados en tus enlaces, de modo que cuando alguien haga click, se abra un chat con un texto ya escrito por vos. ¡Pronto será una realidad!"
+    },
+    {
+        "pregunta": "¿Tienen fecha de caducidad los enlaces cortos?",
+        "respuesta": "¡Tu contenido siempre disponible! A diferencia de otras plataformas que desactivan enlaces por falta de uso, nuestros links no tienen fecha de vencimiento. Una vez que creas un enlace corto, este funcionará de forma permanente y sin interrupciones."
+    },
+    {
+        "pregunta": "¿Es posible crear enlaces cortos personalizados de manera gratuita?",
+        "respuesta": "¡Estamos en eso! Actualmente, nuestro acortador genera enlaces aleatorios para mantener el servicio rápido y 100% gratuito. Sin embargo, nuestro equipo ya está trabajando en la función de personalización y esperamos lanzarla muy pronto para que tus links tengan tu toque personal."
+    }
 ]
