@@ -229,6 +229,49 @@ button.secondary {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.faq-item button {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 1rem 1.2rem;
+  text-align: left;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-item .answer {
+  padding: 0.8rem 1.2rem;
+  color: var(--text);
+  border-top: 1px solid var(--border);
+  animation: fadeIn 0.3s ease;
+}
+
+.faq-item span {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.container .faq-list {
+  /* max-height: 70vh; */
+  overflow-y: auto;
+  /*  padding-right: 4px; */
+}
+
 /* ================= FOOTER ================= */
 .footer {
   width: 100%;
