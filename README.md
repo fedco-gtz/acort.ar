@@ -27,5 +27,5 @@ Los enlaces **no caducan**, se almacenan en Firebase y utilizan **códigos perso
 - **CSS moderno**
 - **Google Fonts**
 
-## Actualización: 05 de enero de 2026
+## Actualización: 12 de enero de 2026
 

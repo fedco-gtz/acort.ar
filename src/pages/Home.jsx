@@ -17,25 +17,57 @@ export default function Home() {
     setLoading(true);
 
     try {
-      const response = await fetch(
-        `https://is.gd/create.php?format=json&url=${encodeURIComponent(url)}`
-      );
+      let shortLink = null;
+      let provider = "";
 
-      const data = await response.json();
+      try {
+        const response = await fetch(
+          `https://api.allorigins.win/get?url=${encodeURIComponent(
+            `https://is.gd/create.php?format=json&url=${encodeURIComponent(url)}`
+          )}`
+        );
 
-      if (!data.shorturl) {
+        const proxyData = await response.json();
+        const data = JSON.parse(proxyData.contents);
+
+        if (data.shorturl) {
+          shortLink = data.shorturl;
+          provider = "is.gd";
+        }
+      } catch (e) {
+        console.log("is.gd falló, usando fallback...");
+      }
+
+      // 🥈 Intento 2: TinyURL
+      if (!shortLink) {
+        const response = await fetch(
+          `https://tinyurl.com/api-create.php?url=${encodeURIComponent(url)}`
+        );
+
+        const data = await response.text();
+
+        if (data) {
+          shortLink = data;
+          provider = "tinyurl";
+        }
+      }
+
+      // ❌ Si ambos fallan
+      if (!shortLink) {
         toast.error("No se pudo acortar el link ⚠️");
         return;
       }
 
+      // 💾 Guardar en Firebase
       await addDoc(collection(db, "urls"), {
         originalUrl: url,
-        shortUrl: data.shorturl,
-        provider: "is.gd",
+        shortUrl: shortLink,
+        provider,
         createdAt: serverTimestamp(),
       });
 
-      setShortUrl(data.shorturl);
+      setShortUrl(shortLink);
+
     } catch (error) {
       console.error(error);
       toast.error("Error al generar el link 💥");
@@ -50,8 +82,12 @@ export default function Home() {
   };
 
   const copyLink = async () => {
-    await navigator.clipboard.writeText(shortUrl);
-    toast.success("Link copiado con éxito 🚀");
+    try {
+      await navigator.clipboard.writeText(shortUrl);
+      toast.success("Link copiado con éxito 🚀");
+    } catch {
+      toast.error("No se pudo copiar el link 😢");
+    }
   };
 
   return (
